@@ -1,0 +1,40 @@
+a:link, a:visited {
+    background-color: rgba(218, 218, 218, 0.74);
+    color: black;
+    border: 2px solid rgba(77, 77, 77, 0.774);
+    padding: 2px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    align-items: center;
+}
+
+a {
+    margin-left: 20%;
+}
+
+form {
+    justify-content: center;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+html {
+    align-items: center;
+    background-color: teal;
+    font-family: "DotGothic16";
+    font-weight: 600;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+@font-face {
+    font-family: "DotGothic16";
+    src: url(/assets/fonts/DOTGOTHIC16-REGULAR.TTF);
+    font-style: regular;
+    font-weight: 100;
+}
