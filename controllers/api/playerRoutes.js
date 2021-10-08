@@ -5,7 +5,7 @@ const Player = require('../../models/player');
 router.post('/login', async (req, res) => {
   try {
     // Find the user who matches the posted username
-    const userData = await Player.findOne({ where: { username: req.body.username } });
+    const userData = await Player.findOne({ where: { userName: req.body.userName } });
 
     if (!userData) {
       res
@@ -24,7 +24,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    // Create session variables based on the logged in user
+    //Create session variables based on the logged in user
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
@@ -48,14 +48,23 @@ router.post('/logout', (req, res) => {
   }
   });
 
-router.post('/register', (req, res) => {
-  if (req.body.user-register) {
-    req.body.password-register(() => {
-      res.status(204).end();
+router.post('/register', async (req, res) => {
+  try {
+    console.log(req.body)
+    const userData = await Player.create(req.body)
+
+         // Create session variables based on the logged in user
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+      
+      res.json({ user: userData, message: 'You are now logged in!' });
     });
-  } else {
-    res.status(404).end();
-  }
+  } catch(err) {
+      console.log(err)
+      res.status(500).json(err);
+
+    }
 });
 
 module.exports = router;

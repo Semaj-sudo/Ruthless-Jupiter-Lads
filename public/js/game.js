@@ -1,5 +1,5 @@
 kaboom({
-    fullscreen: true,
+    
     clearColor: [ 0, 0, 255, ],
     //stretch: true,
     //letterbox: true,

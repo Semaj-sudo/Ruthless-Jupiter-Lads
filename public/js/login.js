@@ -10,14 +10,14 @@ const loginForm = async (event) => {
   
     if (userName && password) {
       // Submit a username and password to the server
-      const response = await fetch('/api/users/login', {
+      const response = await fetch('/api/player/login', {
         method: 'POST',
         body: JSON.stringify({ userName, password }),
         headers: { 'Content-Type': 'application/json' },
       });
   
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/game');
       } else {
           //change alert to something less browser
         alert('Failed to log in');
@@ -27,5 +27,5 @@ const loginForm = async (event) => {
   
   document
     .querySelector('.login-form') //add to page
-    .addEventListener('submit', loginFormHandler)
+    .addEventListener('submit', loginForm)
   

@@ -19,17 +19,18 @@ NewPlayer.init(
 
     userName: {
       type: DataTypes.STRING,
+      unique: true,
       allowNull: false,
+    },
 
     password: {
-      type:DataTypes.STRING,
-      allowNull:false,
+      type: DataTypes.STRING,
+      allowNull :false,
       validate: {
-      length: [8],
+        len: [8],
       }
     },
-    
-    },
+  
     playerScore: {
       type: DataTypes.INTEGER,
       allowNull: true,
@@ -39,6 +40,7 @@ NewPlayer.init(
     {
     hooks: {
       beforeCreate: async (newUserData) => {
+        console.log(newUserData)
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
