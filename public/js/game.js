@@ -45,6 +45,8 @@ var index = Math.floor(Math.random() * enemies.length);
 var computerChoice = enemies[index];
 
 loadSprite('enemies', '/assets/enemies/enemy-1.png')
+loadSprite('enemies1', '/assets/enemies/enemy-2.png')
+loadSprite('enemies2', '/assets/enemies/enemy-3.png')
 loadSprite('user','/assets/images/user-astronaut.png')
 loadSprite('floor','/assets/images/moon-surface.png')
 loadSprite('jupiter','/assets/images/jupiter-view.png')
@@ -60,10 +62,10 @@ const map = [
     "                                        ",
     "                                        ",
     " =                      &              =",
-    " =       &                             =",
+    " =       &      -                      =",
     " =                  &   ==             =",
-    " =       ==  &  =                      =",
-    " =  =               ==      =     &    =",
+    " =       ==  &  =        #             =",
+    " =  =     -         ==      =     &    =",
     " =           ==     ===     ==         =",
     " ======  ===============================",
 ]
@@ -74,6 +76,8 @@ const levelCfg = {
     '=': () => [sprite('floor'), scale(3.5), area(), solid(), origin("bot")],
     '@': () => [sprite('jupiter'), scale(2)],
     '&': () => [sprite('enemies'), scale(3),],
+    '-': () => [sprite('enemies1'), scale(3),],
+    '#': () => [sprite('enemies2'), scale(3),],
 }
 scene("game", () => {
 
